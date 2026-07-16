@@ -21,7 +21,10 @@
   --cmux-diff-sidebar-bg: transparent;
   --cmux-diff-muted-bg: color-mix(in lab, var(--cmux-diff-fg) 8%, transparent);
   --cmux-diff-hover-bg: color-mix(in lab, var(--cmux-diff-fg) 10%, transparent);
-  --cmux-diff-accent: light-dark(#0a84ff, #7ab7ff);
+  /* Artificer accent (themes/_palette.json): light 5.33:1 / dark 6.62:1 on
+     terminal bg — clears WCAG AA text (4.5:1), not just the 3:1 UI floor
+     this token also serves (focus ring, borders). See docs/artificer-adaptations.md. */
+  --cmux-diff-accent: light-dark(#7a5a10, #dbbb6f);
   --cmux-diff-text-muted: color-mix(in lab, var(--cmux-diff-fg) 72%, var(--cmux-diff-bg));
   --cmux-diff-text-subtle: color-mix(in lab, var(--cmux-diff-fg) 84%, var(--cmux-diff-bg));
   /* The native browser panel behind the WebView owns the themed fill. Keep the
@@ -834,7 +837,9 @@ body[data-status-only="true"] #files-sidebar {
   --trees-search-bg-override: color-mix(in lab, var(--cmux-diff-bg) 92%, var(--cmux-diff-fg));
   --trees-status-added-override: light-dark(var(--cmux-diff-addition-fg-light), var(--cmux-diff-addition-fg-dark));
   --trees-status-modified-override: var(--cmux-diff-accent);
-  --trees-status-renamed-override: light-dark(#a26300, #ffd166);
+  /* Artificer attentionAlt (not attention — attention fails text-AA here:
+     light 4.40:1 / dark 3.97:1). attentionAlt: light 5.25:1 / dark 4.81:1. */
+  --trees-status-renamed-override: light-dark(#a04500, #d6936a);
   --trees-status-deleted-override: light-dark(var(--cmux-diff-deletion-fg-light), var(--cmux-diff-deletion-fg-dark));
 }
 body[data-loading="false"] .diff-loading-placeholder {
@@ -1079,7 +1084,9 @@ body[data-loading="true"] #status::before {
   animation: cmuxDiffPendingSpin 800ms linear infinite;
 }
 #status[data-error="true"] {
-  color: light-dark(#b42318, #ff8a80);
+  /* Artificer urgentText — light 7.49:1 / dark 6.12:1 on terminal bg.
+     Same token binds .field>.error in the core system (ADR 0016). */
+  color: light-dark(#8a2418, #e6a8a2);
 }
 @keyframes cmuxDiffPendingSpin {
   to { transform: rotate(360deg); }
