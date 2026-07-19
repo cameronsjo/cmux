@@ -76,19 +76,23 @@ func titlebarControlForegroundNSColor(opacity: CGFloat, appearance: WindowAppear
 }
 
 func cmuxAccentNSColor(for colorScheme: ColorScheme) -> NSColor {
+    // Artificer accent (themes/_palette.json): dark #dbbb6f, light #7a5a10.
+    // 6.62:1 dark / 5.33:1 light against the terminal bg — clears WCAG AA
+    // text (4.5:1), well past the UI-boundary floor this accent also serves
+    // (drop-zone overlays, unselected workspace-row wash).
     switch colorScheme {
     case .dark:
         return NSColor(
-            srgbRed: 0,
-            green: 145.0 / 255.0,
-            blue: 1.0,
+            srgbRed: 219.0 / 255.0,
+            green: 187.0 / 255.0,
+            blue: 111.0 / 255.0,
             alpha: 1.0
         )
     default:
         return NSColor(
-            srgbRed: 0,
-            green: 136.0 / 255.0,
-            blue: 1.0,
+            srgbRed: 122.0 / 255.0,
+            green: 90.0 / 255.0,
+            blue: 16.0 / 255.0,
             alpha: 1.0
         )
     }
